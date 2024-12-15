@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	<title>Reels sccaner head</title>
+</head>
+<body>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+			background: #e5e5e5;
+
+		}
+
+		.head{
+			background: #fff;
+			height: 48px;
+			display: flex;
+			justify-content: space-between;
+		}
+
+
+		.logo{
+			margin-left: 15px;
+			display: flex;
+			justify-content: center;
+  			align-items: center;
+		}
+
+		.logo a{
+			font-family: "Roboto", sans-serif;
+  			font-weight: 500;
+		    font-style: normal;
+			color: black;
+			font-size: 16px;
+			text-decoration: none;
+			line-height: 24px;
+			text-align: center;
+		}
+
+		.user-info{
+			margin-right: 15px;
+			display: flex;
+			align-items: center;
+		}
+
+		.user-info h3{
+			font-family: "Roboto", sans-serif;
+  			font-weight: 400;
+  			font-size: 14px;
+			text-align: right;
+		}
+
+		.user-info .sub{
+			font-size: 12px;
+			color: #00000073;
+		}
+
+		.menu{
+			display: flex;
+		}
+
+		.menu .menu-btn{
+			height: 100%;
+			display: flex;
+			align-items: center;
+			
+		}
+
+		.menu-btn-box{
+			display: flex;
+			margin-left: 10px;
+			margin-right: 10px;
+
+		}
+
+		.menu .partition{
+			font-family: "Roboto", sans-serif;
+  			font-weight: 400;
+  			font-size: 14px;
+  			margin-left: 10px;
+		}
+
+		.menu-btn:hover {
+			color: #1890FF;
+			border-bottom: solid;
+		}
+
+		.menu-btn:hover .partition-logo > path{
+			fill: #1890FF;
+		}
+
+
+	</style>
+	<div class="head">
+		<div class="logo">
+			<a href="">Reels Scanner</a>
+		</div>
+
+		<div class="menu">
+
+			<div class="menu-btn">
+				<div class="menu-btn-box">
+					<svg class="partition-logo" width="16" height="14" viewBox="0 0 13 14" fill="none">
+						<path d="M7.5 0C3.63438 0 0.5 3.13438 0.5 7C0.5 10.8656 3.63438 14 7.5 14C11.3656 14 14.5 10.8656 14.5 7C14.5 3.13438 11.3656 0 7.5 0ZM7.5 12.8125C4.29063 12.8125 1.6875 10.2094 1.6875 7C1.6875 3.79063 4.29063 1.1875 7.5 1.1875C10.7094 1.1875 13.3125 3.79063 13.3125 7C13.3125 10.2094 10.7094 12.8125 7.5 12.8125ZM10.6 3.62344C10.5388 3.59953 10.4735 3.58791 10.4078 3.58925C10.3421 3.59059 10.2774 3.60486 10.2172 3.63125L5.98281 5.48438L4.13125 9.71875C4.075 9.84688 4.075 9.99219 4.13125 10.1203C4.18437 10.2422 4.28281 10.3375 4.40781 10.3859C4.46719 10.4094 4.52812 10.4203 4.59062 10.4203C4.65937 10.4203 4.72656 10.4062 4.79063 10.3781L9.025 8.525L10.8766 4.29063C10.9036 4.22883 10.9178 4.16221 10.9185 4.09477C10.9191 4.02733 10.9061 3.96046 10.8803 3.89815C10.8545 3.83585 10.8164 3.7794 10.7682 3.7322C10.72 3.68499 10.6628 3.648 10.6 3.62344ZM8.5125 7.35L8.92188 7.75937L8.25937 8.42188L7.85 8.0125L5.4375 9.06875L6.49219 6.65625L6.09375 6.25625L6.75625 5.59375L7.15469 5.99219L9.56875 4.9375L8.5125 7.35ZM6.75625 5.59375L6.09375 6.25625L6.49219 6.65625L7.85 8.0125L8.25937 8.42188L8.92188 7.75937L8.5125 7.35L7.15625 5.99219L6.75625 5.59375Z" fill="black"/>
+					</svg>
+					<h3 class="partition">Поиск</h3>
+				</div>
+			</div>
+
+			<div class="menu-btn">
+				<div class="menu-btn-box">
+					<svg class="partition-logo" width="15" height="14" viewBox="0 0 15 14" fill="none">
+						<path d="M14.1564 6.1668L13.6939 1.28242C13.6705 1.0293 13.4689 0.829297 13.2158 0.804297L8.33139 0.341797H8.32514C8.27514 0.341797 8.23608 0.357422 8.20639 0.387109L0.8892 7.7043C0.874715 7.71875 0.863223 7.73592 0.855383 7.75483C0.847542 7.77373 0.843506 7.79399 0.843506 7.81445C0.843506 7.83492 0.847542 7.85518 0.855383 7.87408C0.863223 7.89298 0.874715 7.91015 0.8892 7.92461L6.57358 13.609C6.60326 13.6387 6.64233 13.6543 6.68451 13.6543C6.7267 13.6543 6.76576 13.6387 6.79545 13.609L14.1126 6.2918C14.1439 6.25899 14.1595 6.21367 14.1564 6.1668ZM6.68295 12.0402L2.45795 7.81524L8.70326 1.56992L12.5626 1.93555L12.9283 5.79492L6.68295 12.0402ZM10.1251 2.99805C9.36733 2.99805 8.75014 3.61523 8.75014 4.37305C8.75014 5.13086 9.36733 5.74805 10.1251 5.74805C10.883 5.74805 11.5001 5.13086 11.5001 4.37305C11.5001 3.61523 10.883 2.99805 10.1251 2.99805ZM10.1251 4.87305C9.84858 4.87305 9.62514 4.64961 9.62514 4.37305C9.62514 4.09648 9.84858 3.87305 10.1251 3.87305C10.4017 3.87305 10.6251 4.09648 10.6251 4.37305C10.6251 4.64961 10.4017 4.87305 10.1251 4.87305Z" fill="black"/>
+					</svg>
+					<h3 class="partition">Подборки</h3>
+				</div>
+			</div>
+
+			<div class="menu-btn">
+				<div class="menu-btn-box">
+					<svg class="partition-logo" width="9" height="14" viewBox="0 0 9 14" fill="none">
+						<path d="M7.125 1.3125H1.875C1.5269 1.3125 1.19306 1.45078 0.946922 1.69692C0.700781 1.94306 0.5625 2.2769 0.5625 2.625V12.6875L4.5 9.1875L8.4375 12.6875V2.625C8.4375 2.2769 8.29922 1.94306 8.05308 1.69692C7.80694 1.45078 7.4731 1.3125 7.125 1.3125Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+					<h3 class="partition">Избранное</h3>
+				</div>
+			</div>
+
+			<div class="menu-btn">
+				<div class="menu-btn-box">
+					<svg class="partition-logo" width="13" height="14" viewBox="0 0 13 14" fill="none">
+						<path d="M8.38517 10.7692V11.2404C8.38517 11.7402 8.18662 12.2196 7.83318 12.573C7.47975 12.9264 7.00039 13.125 6.50056 13.125C6.00073 13.125 5.52137 12.9264 5.16793 12.573C4.8145 12.2196 4.61594 11.7402 4.61594 11.2404V10.7692M11.5558 9.80996C10.7995 8.88462 10.2661 8.41346 10.2661 5.86169C10.2661 3.52477 9.07252 2.69303 8.09064 2.28846C8.02276 2.26006 7.96162 2.2177 7.91118 2.16412C7.86075 2.11055 7.82215 2.04696 7.79789 1.9775C7.62513 1.39138 7.14267 0.875 6.50065 0.875C5.85862 0.875 5.37553 1.39201 5.20466 1.97813C5.18061 2.04763 5.14208 2.11123 5.09161 2.16473C5.04115 2.21823 4.9799 2.2604 4.91192 2.28846C3.92878 2.69365 2.73644 3.52288 2.73644 5.86169C2.73519 8.41346 2.20121 8.88462 1.44485 9.80996C1.13138 10.1932 1.4059 10.7692 1.9537 10.7692H11.0501C11.5948 10.7692 11.8674 10.1913 11.5558 9.80996Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+					<h3 class="partition">Подписки</h3>
+				</div>
+			</div>
+
+			<div class="menu-btn">
+				<div class="menu-btn-box">
+					<svg class="partition-logo" width="14" height="13" viewBox="0 0 14 13" fill="none">
+					<path d="M9.25 5.60547L6.5 8.35547L10.625 12.4805L13.375 1.48047L1 6.29297L3.75 7.66797L5.125 11.793L7.1875 9.04297" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+
+					<h3 class="partition">Мы в Telegram</h3>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="user-info">
+			<div class="box">
+				<h3 class="name">user@gmail.com</h3>
+				<h3 class="sub">Осталось 12 дн подписки</h3>	
+			</div>
+		</div>
+	</div>
+</body>
+</html>
