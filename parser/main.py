@@ -43,7 +43,7 @@ async def main(steams: int):
         await asyncio.gather(*tasks)
 
 
-steams_count = 1
+steams_count = 8
 
 try:
     asyncio.run(main(steams_count))
