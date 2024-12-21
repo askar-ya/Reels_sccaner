@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+
+    .search{
+      display: grid;
+      background-color: #f0f0f0;
+      padding: 1vw 1vw;
+      row-gap: 1vw;
+    }
+
+    .search .titel{
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .search .conrols{
+      display: grid;
+      grid-template-columns: 45% 12% 12.5% 28%;
+      column-gap: 1vw;
+    }
+
+    .search .conrols .box{
+      height: 2.8vw;
+      border-radius: 3px;
+      background-color: white;
+      border: 2px solid #d9d9d9;
+    }
+
+    .search .conrols .box:hover {
+      cursor: pointer;
+    }
+
+    .search .conrols .btn-box{
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .search .conrols .input {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: auto 2.8vw;;
+    }
+
+    .search .conrols .input-box{
+      grid-row: 1/2;
+      display: grid;
+      
+    }
+
+    .search .conrols input {
+      border: none;
+      height: 90%;
+      width: 95%;
+      justify-self: center;
+      align-self: center;
+    }
+
+    .search .conrols input:focus {
+      border: none;
+      outline-width: 0;
+    }
+
+    .search .conrols button{
+      grid-row: 1/1;
+      border: none;
+      border-left: 2px solid #d9d9d9;
+    }
+
+    .search .conrols button:hover{
+      cursor: pointer;
+    }
+
+    .search .conrols .filters{
+      display: grid;
+      grid-template-rows: 1fr;
+      column-gap: 1vw;
+    }
+
+    .search .conrols .filters h3{
+      font-size: 14px;
+      font-weight: 400;
+      grid-row: 1/2;
+      align-self: center;
+      justify-self: start;
+    }
+
+    .search .conrols .filters img{
+      align-self: center;
+      justify-self: end;
+      width: 14px;
+      grid-row: 1/2;
+    }
+
+    .search .conrols .subscribe{
+      display: grid;
+      grid-template-rows: 1fr;
+      column-gap: 1vw;
+    }
+
+    .search .conrols .subscribe h3{
+      font-size: 14px;
+      font-weight: 400;
+      grid-row: 1/2;
+      align-self: center;
+      justify-self: start;
+    }
+
+    .search .conrols .subscribe img{
+      align-self: center;
+      justify-self: end;
+      width: 14px;
+      grid-row: 1/2;
+    }
+
+    .search .conrols .order{
+      display: grid;
+      grid-template-rows: 1fr;
+      column-gap: 1vw;
+      padding: 0 1vw;
+      grid-column: 4/5;
+    }
+
+    .search .conrols .order h3{
+      font-size: 14px;
+      font-weight: 400;
+      grid-row: 1/2;
+      align-self: center;
+      justify-self: start;
+    }
+
+    .search .conrols .order img{
+      align-self: center;
+      justify-self: end;
+      width: 14px;
+      grid-row: 1/2;
+    }
+
+    @media (min-width: 1344px) {
+      .search .conrols .box{
+        height: 1.8vw;
+      }
+    }
+
+    .search .curennt-filters{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1vw;
+    }
+
+    .search .curennt-filters .box{
+      background-color: white;
+      border-radius: 3px;
+      grid-template-rows: 1fr;
+      column-gap: 1vw;
+      padding: 0.4vw 1vw;
+      display: grid;
+      border: 2px solid #d9d9d9;
+
+    }
+
+    .search .curennt-filters .box h3{
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      grid-row: 1/2;
+      align-self: center;
+      justify-self: start;
+    }
+
+    .search .curennt-filters .box img{
+      align-self: center;
+      justify-self: end;
+      width: 100%;
+      grid-row: 1/2;
+    }
+
+    .search .curennt-filters .box img:hover {
+      cursor: pointer;
+    }
+
+  </style>
+
+  <div class="search">
+
+    <div class="titel">
+      <span style="color: #1890ff;">797 reels</span> в подборке «Бизнес»
+    </div>
+
+    <div class="conrols">
+
+      <form action="" method="get" class="input box">
+        <div class="input-box">
+          <input name="s" placeholder="Искать по названию/описанию профиля" type="search">  
+        </div>
+        <button type="submit">
+          <img src="{{url_for('static', filename='scope.svg')}}" alt="">
+        </button>
+      </form>
+
+      <div class="filters box btn-box" onclick="open_popUp();">
+        <img src="{{url_for('static', filename='filter.svg')}}" alt="">
+        <h3>Фильтры (2)</h3>
+      </div>
+
+      <div class="subscribe box btn-box">
+        <img src="{{url_for('static', filename='bell.svg')}}" alt="">
+        <h3>Подписаться</h3>
+      </div>
+
+      <div class="order box btn-box">
+        <h3>По количеству просмотров  ↓</h3>
+        <img src="{{url_for('static', filename='list.svg')}}" alt="">
+      </div>
+
+    </div>
+
+    <div class="curennt-filters">
+      <div class="box">
+        <h3>Просмотров: от 20 000</h3>
+        <img src="{{url_for('static', filename='close.svg')}}" alt="">
+      </div>
+
+      <div class="box">
+        <h3>Подписчиков: от 1000</h3>
+        <img src="{{url_for('static', filename='close.svg')}}" alt="">
+      </div>
+
+      <div class="box">
+        <h3>Сбросить все</h3>
+        <img src="{{url_for('static', filename='close.svg')}}" alt="">
+      </div>
+    </div>
+  </div>
+
+  <style>
+    :root {
+      --main-title-font: 24px;
+      --filters-names-font: 14px;
+      --filters-row-h: 2.2vw;
+      --filters-rows-gap: 1vw;
+      --filter-box-column-gap: 1vw;
+      --border-width: 2px;
+      --border-radius: 3px;
+    }
+
+    .filters-popUp{
+      visibility: hidden;
+      top: 0;
+      position: fixed;
+      z-index: 11111;
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .filters-popUp .close{
+
+      width: calc(25vw * 0.127);
+      height: calc(25vw * 0.127);
+      display: grid;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .filters-popUp .close:hover {
+      cursor: pointer;
+    }
+
+    .filters-popUp .close img{
+      width: calc(25vw * 0.0425);
+    }
+
+    .filters-popUp .box{
+      overflow: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      grid-column: 2/3;
+      background-color: white;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(11, calc(var(--filters-row-h) * 2));
+      padding: 6.38%;
+      row-gap: var(--filters-rows-gap);
+    }
+
+
+    .filters-popUp .box::-webkit-scrollbar { /* chrome based */
+      width: 0px;  /* ширина scrollbar'a */
+      background: transparent;  /* опционально */
+    }
+
+    .filters-popUp .box .main-title{
+      
+      font-family: "Roboto", sans-serif;
+      font-size: var(--main-title-font);
+      font-weight: 400;
+    }
+
+    .filters-popUp .box p{
+      align-self: center;
+      font-family: "Roboto", sans-serif;
+      font-size: var(--filters-names-font);
+      font-weight: 400;
+    }
+
+    .filters-popUp .box .filter-box{
+      display: grid;
+      column-gap: var(--filter-box-column-gap);
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .filters-popUp  .input-box{
+      width: 100%;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+
+      border-radius: var(--border-radius);
+      border: var(--border-width) solid #d9d9d9;
+    }
+
+    .filters-popUp  input{
+      font-family: "Roboto", sans-serif;
+      font-size: var(--filters-names-font);
+      font-weight: 400;
+      border: none;
+      height: 95%;
+      justify-self: center;
+      width: 90%;
+    }
+
+    .filters-popUp  input:focus {
+      outline-width: 0;
+    }
+
+    .filters-popUp .title{
+      grid-column: 1/3;
+    }
+
+
+    .filters-popUp .q .input-box{
+      grid-column: 1/3;
+    }
+
+    .filters-popUp .where select{
+      grid-column: 1/3;
+      font-family: "Roboto", sans-serif;
+      font-size: var(--filters-names-font);
+      font-weight: 400;
+      border: none;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--border-radius);
+      background-color: white;
+      border: var(--border-width) solid #d9d9d9;
+    }
+
+    .filters-popUp .where select:focus{
+      outline-width: 0;
+    }
+
+    .filters-popUp .without .title{
+      font-size: var(--filters-names-font);
+    }
+
+    .filters-popUp .without .input-box{
+      grid-column: 1/3;
+      font-size: var(--filters-names-font);
+    }
+
+    .filters-popUp .subs .title{
+      font-size: var(--filters-names-font);
+    }
+
+    .filters-popUp .input-box-par{
+      width: 100%;
+      height: 100%;;
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 3fr;
+      border-radius: var(--border-radius);
+      border: var(--border-width) solid #d9d9d9;
+    }
+
+    .filters-popUp .input-box-par p{
+      align-self: center;
+      justify-self: center;
+      color: #d9d9d9;
+    }
+
+    .filters-popUp .input-box-par input{
+      align-self: center;
+      justify-self: center;
+      height: 90%;
+    }
+
+
+    .filters-popUp .btns{
+      margin-top: var(--filters-rows-gap);
+      row-gap:  var(--filters-rows-gap);
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .filters-popUp .btns .clear{
+      grid-column: 1/3;
+      height: var(--filters-row-h);
+      background-color: white;
+      display: grid;
+      justify-content: center;
+      border-radius: var(--border-radius);
+      border: var(--border-width) solid #d9d9d9;
+    }
+
+    .filters-popUp .btns .clear:hover{
+      cursor: pointer;
+    }
+
+    .filters-popUp .btns .apply{
+      grid-column: 1/3;
+      height: var(--filters-row-h);
+      background-color: #1890ff;
+      display: grid;
+      justify-content: center;
+      border-radius: var(--border-radius);
+    }
+
+    .filters-popUp .btns .apply:hover{
+      cursor: pointer;
+    }
+
+
+    .filters-popUp .btns .apply p{
+      color: white;
+    }
+
+    .filters-popUp .main-title-box{
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+
+    }
+
+    .filters-popUp .main-title-box .close{
+      justify-self: end;
+    }
+
+    .filters-popUp .main-title-box .main-title{
+      align-self: center;
+    }
+
+    @media (min-width: 600px) and (max-width: 704px) {
+      .filters-popUp{
+        grid-template-columns: 1fr 1fr;
+      }
+
+      :root {
+        --main-title-font: 24px;
+        --filters-names-font: 14px;
+        --filters-row-h: 4vw;
+        --filters-rows-gap: 2vw;
+        --filter-box-column-gap: 2vw;
+        --border-width: 2px;
+        --border-radius: 3px;
+      }
+    }
+
+    @media (min-width: 700px) and (max-width: 900px) {
+      .filters-popUp{
+        grid-template-columns: 1.5fr 1fr;
+      }
+
+      :root {
+        --main-title-font: 24px;
+        --filters-names-font: 14px;
+        --filters-row-h: 3vw;
+        --filters-rows-gap: 2vw;
+        --filter-box-column-gap: 1.5vw;
+        --border-width: 1px;
+        --border-radius: 3px;
+      }
+    }
+
+    @media (min-width: 900px) and (max-width: 1300px) {
+      .filters-popUp{
+        grid-template-columns: 1.5fr 1fr;
+      }
+
+      :root {
+        --main-title-font: 26px;
+        --filters-names-font: 17px;
+        --filters-row-h: 4vw;
+        --filters-rows-gap: 1vw;
+        --filter-box-column-gap: 1vw;
+        --border-width: 1px;
+        --border-radius: 3px;
+      }
+    }
+
+    @media (min-width: 1300px) and (max-width: 2198px) {
+      .filters-popUp{
+        grid-template-columns: 3fr 1fr;
+      }
+
+      :root {
+        --main-title-font: 32px;
+        --filters-names-font: 16px;
+        --filters-row-h: 2vw;
+        --filters-rows-gap: 2vw;
+        --filter-box-column-gap: 1vw;
+        --border-width: 1px;
+        --border-radius: 3px;
+      }
+    }
+
+    @media (min-width: 2198px) and (max-width: 2600px) {
+      .filters-popUp{
+        grid-template-columns: 3fr 1fr;
+      }
+
+      :root {
+        --main-title-font: 50px;
+        --filters-names-font: 28px;
+        --filters-row-h: 2vw;
+        --filters-rows-gap: 1.3vw;
+        --filter-box-column-gap: 1vw;
+        --border-width: 1px;
+        --border-radius: 3px;
+      }
+    }
+
+  </style>
+
+  <div class="filters-popUp">
+    <div class="box">
+
+      <div class="main-title-box">
+
+        <div class="main-title">Фильтры</div>
+
+        <div class="close" onclick="close_popUp();" >
+          <img src="{{url_for('static', filename='close.svg')}}" alt="">
+        </div>
+      </div>
+
+      
+
+      <div class="q filter-box">
+        <p class="title">Поисковый запрос</p>
+        <div class="input-box">
+          <input name="где искать" id="">  
+        </div>
+      </div>
+
+      <div class="where filter-box">
+        <p class="title">Где искать</p>
+        <select name="где искать" id="">
+          <option value="dis">В описании рилcа</option>
+          <option value="title">В названии</option>
+        </select>
+      </div>
+
+      <div class="without filter-box">
+        <p class="title">Исключить аккаунт (@user1, @user2)</p>
+        <div class="input-box">
+          <input name="Исключить аккаунт" id="">
+        </div>
+        
+      </div>
+
+       <div class="subs filter-box">
+        <p class="title">Подписчиков</p>
+
+        <div class="input-box-par start">
+          <p class="">от</p>
+          <input  id="start">  
+        </div>
+
+        <div class="input-box-par">
+          <p class="">до</p>
+          <input  id="end">  
+        </div>
+        
+      </div>
+
+      <div class="views filter-box">
+        <p class="title">Просмотров reels</p>
+
+        <div class="input-box-par start">
+          <p class="">от</p>
+          <input  id="start">  
+        </div>
+
+        <div class="input-box-par">
+          <p class="">до</p>
+          <input  id="end">  
+        </div>
+        
+      </div>
+
+      <div class="like filter-box">
+        <p class="title">Лайков</p>
+
+        <div class="input-box-par start">
+          <p class="">от</p>
+          <input  id="start">  
+        </div>
+
+        <div class="input-box-par">
+          <p class="">до</p>
+          <input  id="end">  
+        </div>
+        
+      </div>
+
+      <div class="like filter-box">
+        <p class="title">Комментариев</p>
+
+        <div class="input-box-par start">
+          <p class="">от</p>
+          <input  id="start">  
+        </div>
+
+        <div class="input-box-par">
+          <p class="">до</p>
+          <input  id="end">  
+        </div>
+        
+      </div>
+
+      <div class="like filter-box">
+        <p class="title">Репостов</p>
+
+        <div class="input-box-par start">
+          <p class="">от</p>
+          <input  id="start">  
+        </div>
+
+        <div class="input-box-par">
+          <p class="">до</p>
+          <input  id="end">  
+        </div>
+        
+      </div>
+
+      <div class="like filter-box">
+        <p class="title">Дата публикации</p>
+
+        <div class="input-box-par start">
+          <p class="">от</p>
+          <input  id="start">  
+        </div>
+
+        <div class="input-box-par">
+          <p class="">до</p>
+          <input  id="end">  
+        </div>
+        
+      </div>
+
+      <div class="btns">
+        <div class="clear">
+          <p>Сбросить все</p>
+          
+        </div>
+        <div class="apply">
+          <p>Применить</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    console.log('123');
+
+    function open_popUp() {
+      document.querySelector('.filters-popUp').style.visibility = 'visible';
+    };
+
+    function close_popUp() {
+      document.querySelector('.filters-popUp').style.visibility = 'hidden';
+    };
+
+  </script>
+
+</body>
+</html>
